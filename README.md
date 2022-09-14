@@ -1,4 +1,7 @@
-# Enigmatic Hold![](https://github.com/ZAppFireCZ/enigmatic-hold/blob/1.19/githubpics/logoup.png)
+# Enigmatic Hold
+<p align="right">
+  <img src="./githubpics/logoup.png" width="100">
+</p>
 
 ## Still In Development
 
@@ -6,3 +9,4 @@ This is a mod for Builders that want  to show batter what they're holiding while
 
 
 ![](https://github.com/ZAppFireCZ/enigmatic-hold/blob/1.19/githubpics/2022-09-19_08.59.05.png)
+
