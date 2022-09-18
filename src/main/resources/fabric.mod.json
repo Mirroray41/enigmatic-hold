@@ -1,29 +1,30 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "e_hold",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Enigmatic Hold",
+  "description": "A simple mod that adds a bigger indicator of what you are holding in your hand!",
   "authors": [
-    "Me!"
+    "ZAppFireCZ",
+    "TheEnigmaMan"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/ZAppFireCZ/enigmatic-hold"
   },
 
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "license": "MIT",
+  "icon": "assets/e_hold/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "net.theenigmaman.e_hold.EHold"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "e_hold.mixins.json"
   ],
 
   "depends": {

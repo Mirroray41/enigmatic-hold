@@ -1,12 +1,14 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.fabricmc.example.mixin",
+  "package": "net.theenigmaman.e_hold.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "EHoldGetItemMixin",
+    "EHoldTextMixin"
   ],
   "client": [
-    "ExampleMixin"
+    "EHoldTextMixin"
   ],
   "injectors": {
     "defaultRequire": 1
