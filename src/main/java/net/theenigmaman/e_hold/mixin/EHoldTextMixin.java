@@ -17,16 +17,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class EHoldTextMixin {
     private static final Identifier HUDELEMENT = new Identifier(EHold.MOD_ID,
             "textures/hudelements/hudelement.png");
-    private static final Identifier HUDELEMENT3 = new Identifier(EHold.MOD_ID,
-            "textures/hudelements/hudelement3.png");
-    private static final Identifier HUDELEMENT2BODY2 = new Identifier(EHold.MOD_ID,
-            "textures/hudelements/hudelement2body2.png");
-    private static final Identifier HUDELEMENT2BODY3 = new Identifier(EHold.MOD_ID,
-            "textures/hudelements/hudelement2body3.png");
-    private static final Identifier HUDELEMENT2BODY4 = new Identifier(EHold.MOD_ID,
-            "textures/hudelements/hudelement2body4.png");
-    private static final Identifier HUDELEMENT2HEAD = new Identifier(EHold.MOD_ID,
-            "textures/hudelements/hudelement2head.png");
+    private static final Identifier HUDELEMENT2 = new Identifier(EHold.MOD_ID,
+            "textures/hudelements/hudelement2.png");
     private static final Identifier HUDELEMENT2TAIL = new Identifier(EHold.MOD_ID,
             "textures/hudelements/hudelement2tail.png");
     private static final Identifier HUDELEMENT2BODY = new Identifier(EHold.MOD_ID,
@@ -60,52 +52,37 @@ public class EHoldTextMixin {
 
         }
         if(BlockData.length != 0) {
+            if(BlockData.length > 89 && 92 > BlockData.length) {
+                RenderSystem.setShaderTexture(0, HUDELEMENT2TAIL);
+                DrawableHelper.drawTexture(matrices, 99,1,0,0,5,15,
+                        5,15);
+            } else {
+                RenderSystem.setShaderTexture(0, HUDELEMENT2TAIL);
+                DrawableHelper.drawTexture(matrices, 8 + BlockData.length,1,0,0,5,15,
+                        5,15);
+            }
 
-            RenderSystem.setShaderTexture(0, HUDELEMENT2HEAD);
-            DrawableHelper.drawTexture(matrices,0 ,1,0,0,5,15,
-                    5,15);
-
-            RenderSystem.setShaderTexture(0, HUDELEMENT2TAIL);
-            DrawableHelper.drawTexture(matrices, 7 + BlockData.length,1,0,0,5,15,
-                    5,15);
-            if(BlockData.length < 89) {
+            if(BlockData.length < 91) {
                 RenderSystem.setShaderTexture(0, HUDELEMENT);
                 DrawableHelper.drawTexture(matrices, 0,1,0,0,99,121,
                         99,121);
             } else {
-                for (int i = 0;i < BlockData.length - 2 ; i++){
-                    if(i < 91) {
-                        RenderSystem.setShaderTexture(0, HUDELEMENT2BODY2);
-                        DrawableHelper.drawTexture(matrices, 5 + i,1,0,0,5,15,
-                                5,15);
-                    } else if (i > 90 && i < 92) {
-                        RenderSystem.setShaderTexture(0, HUDELEMENT2BODY3);
-                        DrawableHelper.drawTexture(matrices, 5 + i,1,0,0,5,15,
-                                5,15);
-                    } else if (i > 91 && i < 94) {
-                        RenderSystem.setShaderTexture(0, HUDELEMENT2BODY4);
-                        DrawableHelper.drawTexture(matrices, 5 + i,1,0,0,5,15,
-                                5,15);
-                    } else {
-                        RenderSystem.setShaderTexture(0, HUDELEMENT2BODY);
-                        DrawableHelper.drawTexture(matrices, 5 + i,1,0,0,5,15,
-                                5,15);
+                for (int i = 0;i < BlockData.length -95; i++){
+                    RenderSystem.setShaderTexture(0, HUDELEMENT2BODY);
+                    DrawableHelper.drawTexture(matrices, 99 + i,1,0,0,5,15,
+                            5,15);
                     }
+                    RenderSystem.setShaderTexture(0, HUDELEMENT2);
+                    DrawableHelper.drawTexture(matrices, 0,1,0,0,99,121,
+                            99,121);
                 }
-                RenderSystem.setShaderTexture(0, HUDELEMENT3);
-                DrawableHelper.drawTexture(matrices, 0,16,0,0,99,106,
-                        99,106);
             }
-            if (BlockData.length < 92) {
+            if (BlockData.length < 91) {
                 int l = 45 - (BlockData.length / 2);
-                MinecraftClient.getInstance().textRenderer.draw(matrices, BlockData.itemM, 6 + l, 5,-1);
+                MinecraftClient.getInstance().textRenderer.draw(matrices, BlockData.itemM, 7 + l, 5,-1);
             } else {
-                MinecraftClient.getInstance().textRenderer.draw(matrices, BlockData.itemM, 6, 5,-1);
+                MinecraftClient.getInstance().textRenderer.draw(matrices, BlockData.itemM, 7, 5,-1);
             }
             BlockData.length = 0;
-        }
-        else {
-            MinecraftClient.getInstance().textRenderer.draw(matrices, BlockData.itemM, 6, 5,-1);
-        }
     }
 }
