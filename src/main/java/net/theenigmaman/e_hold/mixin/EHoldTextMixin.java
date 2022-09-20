@@ -52,7 +52,7 @@ public class EHoldTextMixin {
 
         }
         if(BlockData.length != 0) {
-            if(BlockData.length > 89 && 92 > BlockData.length) {
+            if(BlockData.length > 83 && 89 > BlockData.length) {
                 RenderSystem.setShaderTexture(0, HUDELEMENT2TAIL);
                 DrawableHelper.drawTexture(matrices, 99,1,0,0,5,15,
                         5,15);
@@ -62,14 +62,14 @@ public class EHoldTextMixin {
                         5,15);
             }
 
-            if(BlockData.length < 91) {
+            if(BlockData.length < 83) {
                 RenderSystem.setShaderTexture(0, HUDELEMENT);
                 DrawableHelper.drawTexture(matrices, 0,1,0,0,99,121,
                         99,121);
             } else {
-                for (int i = 0;i < BlockData.length -95; i++){
+                for (int i = 0;i < BlockData.length -86; i++){
                     RenderSystem.setShaderTexture(0, HUDELEMENT2BODY);
-                    DrawableHelper.drawTexture(matrices, 99 + i,1,0,0,5,15,
+                    DrawableHelper.drawTexture(matrices, 90 + i,1,0,0,5,15,
                             5,15);
                     }
                     RenderSystem.setShaderTexture(0, HUDELEMENT2);
@@ -77,9 +77,9 @@ public class EHoldTextMixin {
                             99,121);
                 }
             }
-            if (BlockData.length < 91) {
+            if (BlockData.length < 83) {
                 int l = 45 - (BlockData.length / 2);
-                MinecraftClient.getInstance().textRenderer.draw(matrices, BlockData.itemM, 7 + l, 5,-1);
+                MinecraftClient.getInstance().textRenderer.draw(matrices, BlockData.itemM, 5 + l, 5,-1);
             } else {
                 MinecraftClient.getInstance().textRenderer.draw(matrices, BlockData.itemM, 7, 5,-1);
             }
